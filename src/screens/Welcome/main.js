@@ -7,7 +7,7 @@ const Main = () => {
         <View style={styles.mainBody}>
             <View style={styles.mainTextContent}>
                 <Text style={styles.mainText}>
-                    Düşük Ücretlerle Yolculuk Seçenekleri
+                    hadiGo ile Düşük Ücretlerle Yolculuk Keyfi
                 </Text>
             </View>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Welcome} from "./src/screens";
+import {SignUp, Welcome} from "./src/screens";
 import {DefaultTheme, NavigationContainer} from "@react-navigation/native";
 import {createStackNavigator} from "@react-navigation/stack";
 import { LogBox } from 'react-native';
@@ -24,8 +24,9 @@ const App = () => {
         <NavigationContainer theme={theme}>
             <Stack.Navigator
                 screenOptions={{ headerShown: false }}
-                initialRouteName={'Welcome'} >
+                initialRouteName={'SignUp'} >
                 <Stack.Screen name="Welcome" component={Welcome} />
+                <Stack.Screen name="SignUp" component={SignUp} />
             </Stack.Navigator>
         </NavigationContainer>
     )
