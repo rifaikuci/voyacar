@@ -18,6 +18,9 @@ export const COLORS = {
     fifth: "#027bce",
     white: "#fff",
     black: "#fff",
+    cream: "#FFE6CD",
+    powder : "#E9E0D2",
+    powder2 : "#F9E5BC",
 
     transparent: "transparent"
 };

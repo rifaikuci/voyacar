@@ -5,7 +5,10 @@ import icons from "../../../constants/icons";
 import Section from "./section";
 
 
-const SignUp = () => {
+const SignUp = ({navigation}) => {
+
+
+
     return (
         <SafeAreaView>
             <View style={styles.content}>
@@ -21,11 +24,15 @@ const SignUp = () => {
                     </Text>
                 </View>
 
-                <Section text="E-post ile devam et" icon={icons.mail}/>
+                <Section text="E-posta ile devam et" icon={icons.mail}  onPress={()=> navigation.navigate("Step1")}/>
                 <View>
                     <View style={styles.divider}/>
                 </View>
                 <Section text="Facebook ile devam et" icon={icons.facebook}/>
+                <View>
+                    <View style={styles.divider}/>
+                </View>
+                <Section text="Aplle Kimlik ile devam et" icon={icons.apple}/>
 
 
                 <View style={styles.headerContent}>
@@ -35,9 +42,12 @@ const SignUp = () => {
                 </View>
 
                 <View style={styles.headerContent}>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate("SignIn")}>
                     <Text style={styles.signInText}>
                         Giriş Yap
                     </Text>
+                    </TouchableOpacity>
                 </View>
 
                 <View style={styles.bodyContent}>

@@ -4,9 +4,9 @@ import styles from "./styles";
 import icons from "../../../constants/icons";
 
 
-const Section = ({text, icon, onPress}) => {
+const Section = ({text, icon}) => {
     return (
-        <TouchableOpacity onPress={onPress}>
+        <TouchableOpacity>
 
             <View style={styles.headerContent}>
                 <View style={styles.sectionContent}>
