@@ -10,6 +10,8 @@ import Step6 from "./SignUp/Step6";
 import Step7 from "./SignUp/Step7";
 import Step8 from "./SignUp/Step8";
 import Home from "./Home";
+import Login from "./SignIn/Login";
+import ForgetPassword from "./SignIn/ForgetPassword";
 
 export {
     Welcome,
@@ -23,5 +25,7 @@ export {
     Step6,
     Step7,
     Step8,
-    Home
+    Home,
+    Login,
+    ForgetPassword
 }

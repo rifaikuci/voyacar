@@ -20,7 +20,6 @@ const Main = ({navigation, refTelefon, setTextTelefon, textTelefon}) => {
                             ref={input => refTelefon = input}
                             value={"+90"+textTelefon}
                             onChangeText={text => {
-                                console.log(textTelefon)
                                 setTextTelefon(text.substr(3))
                             } }
                             keyboardType={"phone-pad"}

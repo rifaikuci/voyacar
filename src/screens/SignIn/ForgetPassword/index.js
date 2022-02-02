@@ -3,10 +3,9 @@ import {Image, SafeAreaView, Text, TouchableOpacity, View} from "react-native";
 import styles from "./styles";
 import icons from "../../../../constants/icons";
 import Main from "./main";
-import {COLORS, SIZES} from "../../../../constants";
 
 
-const Step1 = ({navigation}) => {
+const ForgetPassword = ({navigation}) => {
     this.mailRef = React.createRef();
     const [textMail, setTextMail] = useState('');
 
@@ -22,30 +21,31 @@ const Step1 = ({navigation}) => {
 
                     <View style={styles.headerContent}>
                         <Text style={styles.headerText}>
-                            {"E-posta adresin nedir ?"}
+                            {"Lütfen kaydolurken kullandığın e-postayı gir. Şifreni değiştirmen için bir bağlantı göndereceğiz?"}
                         </Text>
                     </View>
 
-                    <Main refMail = {this.mailRef} setTextMail = {setTextMail}  textMail = {textMail} />
+                    <Main refMail={this.mailRef} setTextMail={setTextMail} textMail={textMail}/>
 
                 </View>
 
             </SafeAreaView>
-            {
-                textMail && textMail.length > 0 ?
-                <View style={styles.nextImageContent}>
-                    <TouchableOpacity onPress={()=> navigation.navigate("Step2")}
+
+
+            <View style={styles.nextImageContent}>
+                <View style={{alignItems: "center", justifyContent: "center"}}>
+                    <TouchableOpacity onPress={() => navigation.navigate("SignIn")}
                                       style={styles.nextImageBackGround}>
-                        <Image source={icons.nextRight}
-                               style={styles.nextImage}
-                        />
+                        <Text style={styles.submitText}>
+                            {"Gönder"}
+                        </Text>
                     </TouchableOpacity>
-                </View> : null
-            }
+                </View>
+            </View>
 
         </>
 
 
     )
 }
-export default Step1;
+export default ForgetPassword;

@@ -6,9 +6,11 @@ import Main from "./main";
 import {COLORS, SIZES} from "../../../../constants";
 
 
-const Step1 = ({navigation}) => {
-    this.mailRef = React.createRef();
+const Login = ({navigation}) => {
+    this.refMail = React.createRef();
+    this.refSifre = React.createRef();
     const [textMail, setTextMail] = useState('');
+    const [textSifre, setTextSifre] = useState('');
 
     return (
         <>
@@ -22,19 +24,27 @@ const Step1 = ({navigation}) => {
 
                     <View style={styles.headerContent}>
                         <Text style={styles.headerText}>
-                            {"E-posta adresin nedir ?"}
+                            {"E-posta ve Parola nedir ?"}
                         </Text>
                     </View>
 
-                    <Main refMail = {this.mailRef} setTextMail = {setTextMail}  textMail = {textMail} />
+                    <Main
+                        refMail={this.refMail}
+                        refSifre={this.refSifre}
+                        textMail={textMail}
+                        setTextMail={setTextMail}
+                        textSifre={textSifre}
+                        setTextSifre={setTextSifre}
+                        navigation={navigation}
+                    />
 
                 </View>
 
             </SafeAreaView>
             {
-                textMail && textMail.length > 0 ?
+                textMail && textMail.length > 0  && textSifre && textSifre.length > 0 ?
                 <View style={styles.nextImageContent}>
-                    <TouchableOpacity onPress={()=> navigation.navigate("Step2")}
+                    <TouchableOpacity onPress={()=> navigation.navigate("Home")}
                                       style={styles.nextImageBackGround}>
                         <Image source={icons.nextRight}
                                style={styles.nextImage}
@@ -48,4 +58,4 @@ const Step1 = ({navigation}) => {
 
     )
 }
-export default Step1;
+export default Login;

@@ -1,5 +1,19 @@
 import React from 'react';
-import {Home, SignIn, SignUp, Step1, Step2, Step3, Step4, Step5, Step6, Step7, Welcome} from "./src/screens";
+import {
+    ForgetPassword,
+    Home,
+    Login,
+    SignIn,
+    SignUp,
+    Step1,
+    Step2,
+    Step3,
+    Step4,
+    Step5,
+    Step6,
+    Step7,
+    Welcome
+} from "./src/screens";
 import {DefaultTheme, NavigationContainer} from "@react-navigation/native";
 import {createStackNavigator} from "@react-navigation/stack";
 import { LogBox } from 'react-native';
@@ -25,7 +39,7 @@ const App = () => {
         <NavigationContainer theme={theme}>
             <Stack.Navigator
                 screenOptions={{ headerShown: false }}
-                initialRouteName={'Step7'} >
+                initialRouteName={'Welcome'} >
                 <Stack.Screen name="Welcome" component={Welcome} />
                 <Stack.Screen name="SignUp" component={SignUp} />
                 <Stack.Screen name="SignIn" component={SignIn} />
@@ -38,6 +52,8 @@ const App = () => {
                 <Stack.Screen name="Step7" component={Step7} />
                 <Stack.Screen name="Step8" component={Step8} />
                 <Stack.Screen name="Home" component={Home} />
+                <Stack.Screen name="Login" component={Login} />
+                <Stack.Screen name="ForgetPassword" component={ForgetPassword} />
             </Stack.Navigator>
         </NavigationContainer>
     )

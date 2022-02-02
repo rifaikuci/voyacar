@@ -21,7 +21,7 @@ const SignIn = ({navigation}) => {
                     </Text>
                 </View>
 
-                <Section text="E-posta ile devam et" icon={icons.mail}/>
+                <Section text="E-posta ile devam et" icon={icons.mail}  onPress={() => navigation.navigate("Login")}/>
                 <View>
                     <View style={styles.divider}/>
                 </View>
