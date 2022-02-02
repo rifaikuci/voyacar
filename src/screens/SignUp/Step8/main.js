@@ -5,36 +5,33 @@ import React from 'react';
 import {COLORS} from "../../../../constants";
 
 
-const Main = ({navigation, refDogumTarih, setTextDogumTarih, textDogumTarih}) => {
+const Main = ({navigation, refKod, setTextKod, textKod}) => {
 
 
     return (
         <>
-            <TouchableOpacity activeOpacity={1} onPress={() => refDogumTarih.focus()}>
+            <TouchableOpacity activeOpacity={1} onPress={() => refKod.focus()}>
                 <View style={styles.mainContent}>
 
                     <View>
                         <TextInput
-                            ref={input => refDogumTarih = input}
-                            value={textDogumTarih}
-                            onChangeText={text => {
-
-                                text.length === 2 ? setTextDogumTarih(text+"/") :
-                                text.length === 5 ? setTextDogumTarih(text+"/") : setTextDogumTarih(text)
-                                } }
+                            ref={input => refKod = input}
+                            value={textKod}
+                            onChangeText={text => setTextKod(text)}
+                            keyboardType={"numeric"}
                             style={styles.textInput}
-                            placeholder={"GG/AA/YYYY"}
-                            maxLength={10}
+                            placeholder={"4 Haneli Kod"}
+                            maxLength={4}
                             placeholderTextColor={COLORS.primary}/>
                     </View>
 
                     {
-                        textDogumTarih  && textDogumTarih.length  > 0  ?
+                        textKod && textKod.length > 0 ?
                             <View>
                                 <TouchableOpacity onPress={() => {
-                                    refDogumTarih.clear()
-                                    refDogumTarih.focus()
-                                    setTextDogumTarih("")
+                                    refKod.clear()
+                                    refKod.focus()
+                                    setTextKod("")
                                 }}>
 
                                     <Image source={icons.close} style={styles.imageClose}/>

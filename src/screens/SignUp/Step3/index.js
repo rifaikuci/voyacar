@@ -5,44 +5,39 @@ import icons from "../../../../constants/icons";
 import Main from "./main";
 
 
-const Step1 = ({navigation}) => {
-    this.refAd = React.createRef();
-    this.refSoyad = React.createRef();
-    const [textAd, setTextAd] = useState('');
-    const [textSoyad, setTextSoyad] = useState('');
+const Step3 = ({navigation}) => {
+    this.refDogumTarih = React.createRef();
+    const [textDogumTarih, setTextDogumTarih] = useState('');
 
     return (
         <>
             <SafeAreaView>
                 <View style={styles.content}>
                     <View>
-                        <TouchableOpacity onPress={() => navigation.navigate("Step1")}>
+                        <TouchableOpacity onPress={() => navigation.navigate("Step2")}>
                             <Image source={icons.back} style={styles.imageBack}/>
                         </TouchableOpacity>
                     </View>
 
                     <View style={styles.headerContent}>
                         <Text style={styles.headerText}>
-                            {"Adın ne?"}
+                            {"Doğum  Tarihin?"}
                         </Text>
                     </View>
 
                     <Main
-                        refAd = {this.refAd}
-                        refSoyad = {this.refSoyad}
-                        setTextAd = {setTextAd}
-                        textAd = {textAd}
-                        setTextSoyad = {setTextSoyad}
-                        textSoyad = {textSoyad}
+                        refDogumTarih = {this.refDogumTarih}
+                        setTextDogumTarih = {setTextDogumTarih}
+                        textDogumTarih = {textDogumTarih}
                     />
 
                 </View>
 
             </SafeAreaView>
             {
-                textAd && textSoyad && textAd.length > 0  && textSoyad.length > 0?
+                textDogumTarih && textDogumTarih.length === 10 ?
                 <View style={styles.nextImageContent}>
-                    <TouchableOpacity onPress={()=> console.log(textSoyad)}
+                    <TouchableOpacity onPress={()=> navigation.navigate("Step4")}
                                       style={styles.nextImageBackGround}>
                         <Image source={icons.nextRight}
                                style={styles.nextImage}
@@ -56,4 +51,4 @@ const Step1 = ({navigation}) => {
 
     )
 }
-export default Step1;
+export default Step3;

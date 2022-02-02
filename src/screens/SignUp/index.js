@@ -13,7 +13,7 @@ const SignUp = ({navigation}) => {
         <SafeAreaView>
             <View style={styles.content}>
                 <View>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={()=> navigation.navigate("Welcome")}>
                         <Image source={icons.close} style={styles.imageClose}/>
                     </TouchableOpacity>
                 </View>

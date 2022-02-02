@@ -5,7 +5,7 @@ import icons from "../../../../constants/icons";
 import Main from "./main";
 
 
-const Step1 = ({navigation}) => {
+const Step2 = ({navigation}) => {
     this.refAd = React.createRef();
     this.refSoyad = React.createRef();
     const [textAd, setTextAd] = useState('');
@@ -42,7 +42,7 @@ const Step1 = ({navigation}) => {
             {
                 textAd && textSoyad && textAd.length > 0  && textSoyad.length > 0?
                 <View style={styles.nextImageContent}>
-                    <TouchableOpacity onPress={()=> console.log(textSoyad)}
+                    <TouchableOpacity onPress={()=> navigation.navigate("Step3")}
                                       style={styles.nextImageBackGround}>
                         <Image source={icons.nextRight}
                                style={styles.nextImage}
@@ -56,4 +56,4 @@ const Step1 = ({navigation}) => {
 
     )
 }
-export default Step1;
+export default Step2;

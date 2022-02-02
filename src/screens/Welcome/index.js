@@ -5,7 +5,7 @@ import Main from "./main";
 import images from "../../../constants/images";
 
 
-const Welcome = () => {
+const Welcome = ( {navigation}) => {
     return (
         <View style={styles.main}>
             <View style={styles.contentTopBody}>
@@ -14,7 +14,7 @@ const Welcome = () => {
             </View>
 
             <View style={styles.contentBottomBody}>
-                <Main/>
+                <Main navigation={navigation}/>
             </View>
         </View>
     )

@@ -5,6 +5,8 @@ const next = require("../assets/icons/next.png");
 const apple = require("../assets/icons/apple.png");
 const back = require("../assets/icons/back.png");
 const nextRight = require("../assets/icons/next-right.png");
+const eye = require("../assets/icons/eye.png");
+const closeEye = require("../assets/icons/closeEye.png");
 
 
 export default {
@@ -14,5 +16,7 @@ export default {
     next,
     apple,
     back,
-    nextRight
+    nextRight,
+    eye,
+    closeEye
 }

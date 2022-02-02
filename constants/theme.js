@@ -21,6 +21,7 @@ export const COLORS = {
     cream: "#FFE6CD",
     powder : "#E9E0D2",
     powder2 : "#F9E5BC",
+    gray : "#494948",
 
     transparent: "transparent"
 };
