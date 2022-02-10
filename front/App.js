@@ -39,7 +39,7 @@ const App = () => {
         <NavigationContainer theme={theme}>
             <Stack.Navigator
                 screenOptions={{ headerShown: false }}
-                initialRouteName={'Welcome'} >
+                initialRouteName={'Step8'} >
                 <Stack.Screen name="Welcome" component={Welcome} />
                 <Stack.Screen name="SignUp" component={SignUp} />
                 <Stack.Screen name="SignIn" component={SignIn} />

@@ -1,15 +1,36 @@
-import {Image, TextInput, TouchableOpacity, View} from "react-native";
+import {Image, TextInput, TouchableOpacity, View, Text} from "react-native";
 import styles from "./styles";
 import icons from "../../../../constants/icons";
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {COLORS} from "../../../../constants";
 
 
 const Main = ({navigation, refKod, setTextKod, textKod}) => {
 
 
-    return (
-        <>
+    function countDown(value) {
+        deger = value;
+        oneSecInterval = setInterval(() => {
+            setCount(deger);
+            deger--;
+            if (deger < 0) {
+                clearInterval(oneSecInterval);
+            }
+        }, 1000);
+    }
+
+    let deger = 4;
+
+    const [count, setCount] = useState(deger);
+    let oneSecInterval = null;
+
+
+    useEffect(() => {
+        countDown(count);
+
+    }, []);
+
+    return (<>
             <TouchableOpacity activeOpacity={1} onPress={() => refKod.focus()}>
                 <View style={styles.mainContent}>
 
@@ -25,23 +46,46 @@ const Main = ({navigation, refKod, setTextKod, textKod}) => {
                             placeholderTextColor={COLORS.primary}/>
                     </View>
 
-                    {
-                        textKod && textKod.length > 0 ?
-                            <View>
-                                <TouchableOpacity onPress={() => {
-                                    refKod.clear()
-                                    refKod.focus()
-                                    setTextKod("")
-                                }}>
+                    {textKod && textKod.length > 0 ? <View>
+                        <TouchableOpacity onPress={() => {
+                            refKod.clear()
+                            refKod.focus()
+                            setTextKod("")
+                        }}>
 
-                                    <Image source={icons.close} style={styles.imageClose}/>
-                                </TouchableOpacity>
+                            <Image source={icons.close} style={styles.imageClose}/>
+                        </TouchableOpacity>
 
-                            </View> : null
-                    }
+                    </View> : null}
 
                 </View>
             </TouchableOpacity>
+            <View style={styles.btnContent}>
+
+                <View>
+                    {
+                        0 == count ?
+                            <TouchableOpacity
+                                disabled={0 < count}
+                                onPress={() => {
+                                    countDown(5);
+                                }}>
+                                <Text style={styles.textBtn}>
+                                    Tekrar Gönder
+                                </Text>
+                            </TouchableOpacity>  : null
+                    }
+                </View>
+
+
+                <View>
+                        <Text style={styles.textBtnKalanSure}>
+                            Kalan Süre ({count} sn.)
+                        </Text>
+                </View>
+
+
+            </View>
         </>
 
 

@@ -48,18 +48,18 @@ export default StyleSheet.create({
         marginRight: -20
     },
 
-    subContentText :{
+    subContentText: {
         marginTop: 3,
 
     },
 
-    subText : {
-        fontSize : 18,
+    subText: {
+        fontSize: 18,
         color: COLORS.primary,
         fontWeight: '600'
     },
 
-    divider : {
+    divider: {
         borderColor: "rgba(105, 105, 105, 0.3)",
         borderWidth: 1,
         marginTop: 30
@@ -82,12 +82,12 @@ export default StyleSheet.create({
         marginTop: 20
     },
 
-    infoText : {
+    infoText: {
         fontSize: 12,
         color: "rgba(105, 105, 105, 1)"
     },
 
-    mainContent : {
+    mainContent: {
         flexDirection: "row",
         backgroundColor: COLORS.powder,
         padding: 20,
@@ -96,18 +96,18 @@ export default StyleSheet.create({
         marginVertical: 25
     },
 
-    textInput : {
+    textInput: {
         fontSize: 17
     },
 
-    imageClose : {
+    imageClose: {
         width: 15,
         height: 15,
         marginRight: 2,
         tintColor: COLORS.primary
     },
 
-    nextImageContent : {
+    nextImageContent: {
         position: "absolute",
         bottom: 0,
         right: 0,
@@ -115,7 +115,7 @@ export default StyleSheet.create({
         margin: 35
     },
 
-    nextImageBackGround  :{
+    nextImageBackGround: {
         width: SIZES.width / 6,
         height: SIZES.width / 6,
         justifyContent: "center",
@@ -126,14 +126,14 @@ export default StyleSheet.create({
         borderColor: COLORS.white
     },
 
-    nextImage : {
+    nextImage: {
         width: SIZES.width / 12,
         height: SIZES.width / 12,
         resizeMode: "contain",
         tintColor: COLORS.black
     },
 
-    mainContent2 : {
+    mainContent2: {
         flexDirection: "row",
         backgroundColor: COLORS.powder,
         padding: 20,
@@ -141,7 +141,25 @@ export default StyleSheet.create({
         justifyContent: "space-between",
     },
 
+    btnContent: {
+        flexDirection: "row",
+        margin: 10,
+        marginHorizontal: 15,
+        justifyContent: "space-between",
+    },
 
+    textBtn: {
+        fontSize: 15,
+       textDecorationLine: 'underline',
+        fontWeight: "600",
+        color: COLORS.thirthly
+    },
+
+    textBtnKalanSure: {
+        fontSize: 15,
+        fontWeight: "600",
+        color: COLORS.gray
+    }
 
 
 })

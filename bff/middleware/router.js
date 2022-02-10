@@ -9,7 +9,7 @@ const redisClient = ExpressRedisCache.init({ host: `${process.env.REDIS}`, port:
 
 const transactionApis = require('../statics/transactions');
 
-function getAsync(key) {
+async  function getAsync(key) {
 
     let cacheData = undefined;
 
@@ -24,12 +24,12 @@ function getAsync(key) {
     return cacheData;
 }
 
-function setAsync(key, data) {
+async function setAsync(key, data) {
     await redisClient.addAsync(key, JSON.stringify(data));
     return data;
 }
 
-function deleteAsync(key) {
+async function deleteAsync(key) {
     await redisClient.delAsync(key);
 }
 
