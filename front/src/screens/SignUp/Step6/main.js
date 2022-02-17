@@ -5,10 +5,7 @@ import React, {useState} from 'react';
 import {COLORS} from "../../../../constants";
 
 
-const Main = ({navigation, refTelefon, setTextTelefon, textTelefon}) => {
-
-
-    const [visible, setVisible] = useState(true);
+const Main = ({refTelefon, setTextTelefon, textTelefon}) => {
 
     return (
         <>
@@ -18,10 +15,10 @@ const Main = ({navigation, refTelefon, setTextTelefon, textTelefon}) => {
                     <View>
                         <TextInput
                             ref={input => refTelefon = input}
-                            value={"+90"+textTelefon}
+                            value={"+90" + textTelefon}
                             onChangeText={text => {
                                 setTextTelefon(text.substr(3))
-                            } }
+                            }}
                             keyboardType={"phone-pad"}
                             style={styles.textInput}
                             placeholder={"Telefon"}
@@ -31,7 +28,7 @@ const Main = ({navigation, refTelefon, setTextTelefon, textTelefon}) => {
                     {
                         textTelefon && textTelefon.length > 0 ?
                             <View>
-                                 <TouchableOpacity onPress={() => {
+                                <TouchableOpacity onPress={() => {
                                     refTelefon.clear()
                                     refTelefon.focus()
                                     setTextTelefon("")

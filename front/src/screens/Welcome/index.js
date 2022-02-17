@@ -1,11 +1,23 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {ImageBackground, View} from "react-native";
 import styles from "./styles";
 import Main from "./main";
 import images from "../../../constants/images";
+import axios from 'axios';
 
 
-const Welcome = ( {navigation}) => {
+
+const Welcome = ( props) => {
+/*
+    axios.get('http://localhost:9000/user/test')
+        .then(response => {
+            console.log(response.data.responseObject.user);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+ */
+
     return (
         <View style={styles.main}>
             <View style={styles.contentTopBody}>
@@ -14,7 +26,7 @@ const Welcome = ( {navigation}) => {
             </View>
 
             <View style={styles.contentBottomBody}>
-                <Main navigation={navigation}/>
+                <Main props={props}/>
             </View>
         </View>
     )

@@ -3,10 +3,9 @@ import {Image, SafeAreaView, Text, TouchableOpacity, View} from "react-native";
 import styles from "./styles";
 import icons from "../../../../constants/icons";
 import Main from "./main";
-import {COLORS, SIZES} from "../../../../constants";
 
 
-const Step1 = ({navigation}) => {
+const Step1 = (props) => {
     this.mailRef = React.createRef();
     const [textMail, setTextMail] = useState('');
 
@@ -15,7 +14,7 @@ const Step1 = ({navigation}) => {
             <SafeAreaView>
                 <View style={styles.content}>
                     <View>
-                        <TouchableOpacity onPress={() => navigation.navigate("SignIn")}>
+                        <TouchableOpacity onPress={() => props.navigation.navigate("SignIn")}>
                             <Image source={icons.back} style={styles.imageBack}/>
                         </TouchableOpacity>
                     </View>
@@ -34,7 +33,7 @@ const Step1 = ({navigation}) => {
             {
                 textMail && textMail.length > 0 ?
                 <View style={styles.nextImageContent}>
-                    <TouchableOpacity onPress={()=> navigation.navigate("Step2")}
+                    <TouchableOpacity onPress={()=> props.navigation.navigate("Step2")}
                                       style={styles.nextImageBackGround}>
                         <Image source={icons.nextRight}
                                style={styles.nextImage}

@@ -6,7 +6,7 @@ import Main from "./main";
 import Section from "./section";
 
 
-const Step6 = ({navigation}) => {
+const Step6 = (props) => {
     this.refTelefon = React.createRef();
     const [textTelefon, setTextTelefon] = useState('');
 
@@ -15,7 +15,7 @@ const Step6 = ({navigation}) => {
             <SafeAreaView>
                 <View style={styles.content}>
                     <View>
-                        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+                        <TouchableOpacity onPress={() => props.navigation.navigate("Home")}>
                             <Image source={icons.close} style={styles.imageBack}/>
                         </TouchableOpacity>
                     </View>
@@ -35,7 +35,7 @@ const Step6 = ({navigation}) => {
                         <View style={styles.divider}/>
                     </View>
 
-                    <Section text={"Daha Sonra Yaparım"} onPress={()=> {navigation.navigate("Home")}}/>
+                    <Section text={"Daha Sonra Yaparım"} onPress={()=> {props.navigation.navigate("Home")}}/>
 
                 </View>
 
@@ -44,7 +44,7 @@ const Step6 = ({navigation}) => {
             {
                 textTelefon && textTelefon.length >= 10  ?
                     <View style={styles.nextImageContent}>
-                        <TouchableOpacity onPress={() => navigation.navigate("Step7")}
+                        <TouchableOpacity onPress={() => props.navigation.navigate("Step7")}
                                           style={styles.nextImageBackGround}>
                             <Image source={icons.nextRight}
                                    style={styles.nextImage}

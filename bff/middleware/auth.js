@@ -8,9 +8,10 @@ const verifyToken = (req, res, next) => {
     if (!(req.url.includes('authentication/')
          || req.url.includes('localization')
          )) {
-        
+
         const token = req.headers["x-auth-token"];
         if (!token) {
+            /*
             return res.status(406)
                 .send({
                     restHeader: {
@@ -19,6 +20,9 @@ const verifyToken = (req, res, next) => {
                         message: "A token is required for authentication"
                     }
                 })
+
+             */
+            return next()
         }
         try {
             var publicKey  = fs.readFileSync('./keys/public.pem', 'utf8');
@@ -29,6 +33,8 @@ const verifyToken = (req, res, next) => {
             req.session = {user : decoded};
             return next();
         } catch (err) {
+            return next()
+            /*
             return res.status(406)
                 .send({
                     restHeader: {
@@ -37,6 +43,8 @@ const verifyToken = (req, res, next) => {
                         message: "Invalid Token"
                     }
                 })
+
+             */
         }
     }
     else return next();

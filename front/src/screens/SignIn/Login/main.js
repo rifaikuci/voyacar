@@ -5,7 +5,7 @@ import React, {useState} from 'react';
 import {COLORS} from "../../../../constants";
 import CheckBox from "@react-native-community/checkbox";
 
-const Main = ({navigation, refMail, setTextMail, textMail, refSifre, textSifre, setTextSifre}) => {
+const Main = ({props, refMail, setTextMail, textMail, refSifre, textSifre, setTextSifre}) => {
     const [visible, setVisible] = useState(true);
 
 
@@ -72,7 +72,7 @@ const Main = ({navigation, refMail, setTextMail, textMail, refSifre, textSifre, 
 
                 </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate("ForgetPassword")}>
+            <TouchableOpacity onPress={() => props.navigation.navigate("ForgetPassword")}>
                 <View style={styles.infoContent}>
                     <Text style={styles.infoText}>
                         {"Şifremi Unuttum?"}

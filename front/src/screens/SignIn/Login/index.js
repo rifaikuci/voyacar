@@ -3,10 +3,9 @@ import {Image, SafeAreaView, Text, TouchableOpacity, View} from "react-native";
 import styles from "./styles";
 import icons from "../../../../constants/icons";
 import Main from "./main";
-import {COLORS, SIZES} from "../../../../constants";
 
 
-const Login = ({navigation}) => {
+const Login = (props) => {
     this.refMail = React.createRef();
     this.refSifre = React.createRef();
     const [textMail, setTextMail] = useState('');
@@ -17,7 +16,7 @@ const Login = ({navigation}) => {
             <SafeAreaView>
                 <View style={styles.content}>
                     <View>
-                        <TouchableOpacity onPress={() => navigation.navigate("SignIn")}>
+                        <TouchableOpacity onPress={() => props.navigation.navigate("SignIn")}>
                             <Image source={icons.back} style={styles.imageBack}/>
                         </TouchableOpacity>
                     </View>
@@ -35,7 +34,7 @@ const Login = ({navigation}) => {
                         setTextMail={setTextMail}
                         textSifre={textSifre}
                         setTextSifre={setTextSifre}
-                        navigation={navigation}
+                        props = {props}
                     />
 
                 </View>
@@ -44,7 +43,10 @@ const Login = ({navigation}) => {
             {
                 textMail && textMail.length > 0  && textSifre && textSifre.length > 0 ?
                 <View style={styles.nextImageContent}>
-                    <TouchableOpacity onPress={()=> navigation.navigate("Home")}
+                    <TouchableOpacity onPress={()=> props.navigation.navigate("Home", {
+                        mail : textMail,
+                        password: textSifre
+                    })}
                                       style={styles.nextImageBackGround}>
                         <Image source={icons.nextRight}
                                style={styles.nextImage}

@@ -5,12 +5,12 @@ import icons from "../../../constants/icons";
 import Section from "./section";
 
 
-const SignIn = ({navigation}) => {
+const SignIn = (props) => {
     return (
         <SafeAreaView>
             <View style={styles.content}>
                 <View>
-                    <TouchableOpacity onPress={()=> navigation.navigate("Welcome")}>
+                    <TouchableOpacity onPress={()=> props.navigation.navigate("Welcome")}>
                         <Image source={icons.close} style={styles.imageClose}/>
                     </TouchableOpacity>
                 </View>
@@ -21,16 +21,10 @@ const SignIn = ({navigation}) => {
                     </Text>
                 </View>
 
-                <Section text="E-posta ile devam et" icon={icons.mail}  onPress={() => navigation.navigate("Login")}/>
+                <Section text="E-posta ile devam et" icon={icons.mail}  onPress={() => props.navigation.navigate("Login")}/>
                 <View>
                     <View style={styles.divider}/>
                 </View>
-                <Section text="Facebook ile devam et" icon={icons.facebook}/>
-                <View>
-                    <View style={styles.divider}/>
-                </View>
-                <Section text="Aplle Kimlik ile devam et" icon={icons.apple}/>
-
 
                 <View style={styles.headerContent}>
                     <Text style={styles.signInLabel}>
@@ -40,7 +34,7 @@ const SignIn = ({navigation}) => {
 
                 <View style={styles.headerContent}>
                     <TouchableOpacity
-                    onPress={() => navigation.navigate("SignUp")}
+                    onPress={() => props.navigation.navigate("SignUp")}
                     >
                         <Text style={styles.signInText}>
                         Üye Ol

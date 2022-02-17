@@ -5,7 +5,7 @@ import React from 'react';
 import {COLORS} from "../../../../constants";
 
 
-const Main = ({navigation, refAd, refSoyad, textAd, setTextAd, textSoyad, setTextSoyad}) => {
+const Main = ({ refAd, refSoyad, textAd, setTextAd, textSoyad, setTextSoyad}) => {
 
 
     return (

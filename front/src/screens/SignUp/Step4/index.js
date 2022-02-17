@@ -5,17 +5,17 @@ import icons from "../../../../constants/icons";
 import Section from "./section";
 
 
-const Step4 = ({navigation}) => {
+const Step4 = (props) => {
 
    function onPressErkek() {
 
-       navigation.navigate("Step5")
+       props.navigation.navigate("Step5")
     }
 
 
     function onPressKadin() {
 
-        navigation.navigate("Step5")
+        props.navigation.navigate("Step5")
     }
 
     return (
@@ -23,7 +23,7 @@ const Step4 = ({navigation}) => {
             <SafeAreaView>
                 <View style={styles.content}>
                     <View>
-                        <TouchableOpacity onPress={() => navigation.navigate("Step3")}>
+                        <TouchableOpacity onPress={() => props.navigation.navigate("Step3")}>
                             <Image source={icons.back} style={styles.imageBack}/>
                         </TouchableOpacity>
                     </View>

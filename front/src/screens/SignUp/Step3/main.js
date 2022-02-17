@@ -5,7 +5,7 @@ import React from 'react';
 import {COLORS} from "../../../../constants";
 
 
-const Main = ({navigation, refDogumTarih, setTextDogumTarih, textDogumTarih}) => {
+const Main = ({ refDogumTarih, setTextDogumTarih, textDogumTarih}) => {
 
 
     return (

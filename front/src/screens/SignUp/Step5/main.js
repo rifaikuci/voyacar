@@ -5,7 +5,7 @@ import React, {useState} from 'react';
 import {COLORS} from "../../../../constants";
 
 
-const Main = ({navigation, refSifre, setTextSifre, textSifre}) => {
+const Main = ({ refSifre, setTextSifre, textSifre}) => {
 
 
     const [visible, setVisible] = useState(true);

@@ -5,7 +5,7 @@ import icons from "../../../../constants/icons";
 import Main from "./main";
 
 
-const Step3 = ({navigation}) => {
+const Step3 = (props) => {
     this.refDogumTarih = React.createRef();
     const [textDogumTarih, setTextDogumTarih] = useState('');
 
@@ -14,7 +14,7 @@ const Step3 = ({navigation}) => {
             <SafeAreaView>
                 <View style={styles.content}>
                     <View>
-                        <TouchableOpacity onPress={() => navigation.navigate("Step2")}>
+                        <TouchableOpacity onPress={() => props.navigation.navigate("Step2")}>
                             <Image source={icons.back} style={styles.imageBack}/>
                         </TouchableOpacity>
                     </View>
@@ -37,7 +37,7 @@ const Step3 = ({navigation}) => {
             {
                 textDogumTarih && textDogumTarih.length === 10 ?
                 <View style={styles.nextImageContent}>
-                    <TouchableOpacity onPress={()=> navigation.navigate("Step4")}
+                    <TouchableOpacity onPress={()=> props.navigation.navigate("Step4")}
                                       style={styles.nextImageBackGround}>
                         <Image source={icons.nextRight}
                                style={styles.nextImage}

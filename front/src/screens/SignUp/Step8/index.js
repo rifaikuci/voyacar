@@ -5,7 +5,7 @@ import icons from "../../../../constants/icons";
 import Main from "./main";
 
 
-const Step3 = ({navigation}) => {
+const Step8 = (props) => {
     this.refKod = React.createRef();
     const [textKod, setTextKod] = useState('');
 
@@ -14,7 +14,7 @@ const Step3 = ({navigation}) => {
             <SafeAreaView>
                 <View style={styles.content}>
                     <View>
-                        <TouchableOpacity onPress={() => navigation.navigate("Step7")}>
+                        <TouchableOpacity onPress={() => props.navigation.navigate("Step7")}>
                             <Image source={icons.back} style={styles.imageBack}/>
                         </TouchableOpacity>
                     </View>
@@ -37,7 +37,7 @@ const Step3 = ({navigation}) => {
             {
                 textKod && textKod.length === 4 ?
                     <View style={styles.nextImageContent}>
-                        <TouchableOpacity onPress={() => navigation.navigate("Home")}
+                        <TouchableOpacity onPress={() => props.navigation.navigate("Home")}
                                           style={styles.nextImageBackGround}>
                             <Image source={icons.nextRight}
                                    style={styles.nextImage}
@@ -51,4 +51,4 @@ const Step3 = ({navigation}) => {
 
     )
 }
-export default Step3;
+export default Step8;

@@ -5,14 +5,14 @@ import icons from "../../../../constants/icons";
 import Section from "./section";
 
 
-const Step7 = ({navigation}) => {
+const Step7 = (props) => {
 
     return (
         <>
             <SafeAreaView>
                 <View style={styles.content}>
                     <View>
-                        <TouchableOpacity onPress={() => navigation.navigate("Step6")}>
+                        <TouchableOpacity onPress={() => props.navigation.navigate("Step6")}>
                             <Image source={icons.back} style={styles.imageBack}/>
                         </TouchableOpacity>
                     </View>
@@ -30,14 +30,14 @@ const Step7 = ({navigation}) => {
                     </View>
 
                     <Section text={"Evet, eski hesabıma bağlanmama izin ver"}
-                             onPress={() => navigation.navigate("SignIn")}/>
+                             onPress={() => props.navigation.navigate("SignIn")}/>
 
                     <View>
                         <View style={styles.divider}/>
                     </View>
 
                     <Section text={"Hayır, telefon numaramı yeni hesabıma bağla"}
-                             onPress={() => navigation.navigate("Step8")}/>
+                             onPress={() => props.navigation.navigate("Step8")}/>
 
                 </View>
             </SafeAreaView>

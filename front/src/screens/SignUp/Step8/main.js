@@ -5,7 +5,7 @@ import React, {useEffect, useState} from 'react';
 import {COLORS} from "../../../../constants";
 
 
-const Main = ({navigation, refKod, setTextKod, textKod}) => {
+const Main = ({refKod, setTextKod, textKod}) => {
 
 
     function countDown(value) {
@@ -73,15 +73,15 @@ const Main = ({navigation, refKod, setTextKod, textKod}) => {
                                 <Text style={styles.textBtn}>
                                     Tekrar Gönder
                                 </Text>
-                            </TouchableOpacity>  : null
+                            </TouchableOpacity> : null
                     }
                 </View>
 
 
                 <View>
-                        <Text style={styles.textBtnKalanSure}>
-                            Kalan Süre ({count} sn.)
-                        </Text>
+                    <Text style={styles.textBtnKalanSure}>
+                        Kalan Süre ({count} sn.)
+                    </Text>
                 </View>
 
 

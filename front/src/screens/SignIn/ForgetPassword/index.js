@@ -5,7 +5,7 @@ import icons from "../../../../constants/icons";
 import Main from "./main";
 
 
-const ForgetPassword = ({navigation}) => {
+const ForgetPassword = (props) => {
     this.mailRef = React.createRef();
     const [textMail, setTextMail] = useState('');
 
@@ -14,7 +14,7 @@ const ForgetPassword = ({navigation}) => {
             <SafeAreaView>
                 <View style={styles.content}>
                     <View>
-                        <TouchableOpacity onPress={() => navigation.navigate("SignIn")}>
+                        <TouchableOpacity onPress={() => props.navigation.navigate("SignIn")}>
                             <Image source={icons.back} style={styles.imageBack}/>
                         </TouchableOpacity>
                     </View>
@@ -34,7 +34,7 @@ const ForgetPassword = ({navigation}) => {
 
             <View style={styles.nextImageContent}>
                 <View style={{alignItems: "center", justifyContent: "center"}}>
-                    <TouchableOpacity onPress={() => navigation.navigate("SignIn")}
+                    <TouchableOpacity onPress={() => props.navigation.navigate("SignIn")}
                                       style={styles.nextImageBackGround}>
                         <Text style={styles.submitText}>
                             {"Gönder"}

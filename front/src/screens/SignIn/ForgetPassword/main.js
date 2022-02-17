@@ -3,9 +3,8 @@ import styles from "./styles";
 import icons from "../../../../constants/icons";
 import React from 'react';
 import {COLORS} from "../../../../constants";
-import CheckBox from "@react-native-community/checkbox";
 
-const Main = ({navigation, refMail, setTextMail, textMail}) => {
+const Main = ({ refMail, setTextMail, textMail}) => {
 
 
     return (

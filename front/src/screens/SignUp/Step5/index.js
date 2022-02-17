@@ -5,7 +5,7 @@ import icons from "../../../../constants/icons";
 import Main from "./main";
 
 
-const Step5 = ({navigation}) => {
+const Step5 = (props) => {
     this.refSifre = React.createRef();
     const [textSifre, setTextSifre] = useState('');
 
@@ -14,7 +14,7 @@ const Step5 = ({navigation}) => {
             <SafeAreaView>
                 <View style={styles.content}>
                     <View>
-                        <TouchableOpacity onPress={() => navigation.navigate("Step4")}>
+                        <TouchableOpacity onPress={() => props.navigation.navigate("Step4")}>
                             <Image source={icons.back} style={styles.imageBack}/>
                         </TouchableOpacity>
                     </View>
@@ -42,7 +42,7 @@ const Step5 = ({navigation}) => {
             {
                 textSifre && textSifre.length >= 8  ?
                     <View style={styles.nextImageContent}>
-                        <TouchableOpacity onPress={() => navigation.navigate("Step6")}
+                        <TouchableOpacity onPress={() => props.navigation.navigate("Step6")}
                                           style={styles.nextImageBackGround}>
                             <Image source={icons.nextRight}
                                    style={styles.nextImage}
