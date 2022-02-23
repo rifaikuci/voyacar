@@ -6,15 +6,20 @@ import Main from "./main";
 
 
 const Step5 = (props) => {
-    this.refSifre = React.createRef();
-    const [textSifre, setTextSifre] = useState('');
+
+    let params = props.route.params
+
+    this.refPassword = React.createRef();
+    this.refRePassword = React.createRef();
+    const [textPassword, setTextPassword] = useState(params.password);
+    const [textRePassword, setTextRePassword] = useState(params.rePassword);
 
     return (
         <>
             <SafeAreaView>
                 <View style={styles.content}>
                     <View>
-                        <TouchableOpacity onPress={() => props.navigation.navigate("Step4")}>
+                        <TouchableOpacity onPress={() => props.navigation.navigate("Step4", {params: params})}>
                             <Image source={icons.back} style={styles.imageBack}/>
                         </TouchableOpacity>
                     </View>
@@ -31,18 +36,25 @@ const Step5 = (props) => {
                     </View>
 
                     <Main
-                        refSifre={this.refSifre}
-                        setTextSifre={setTextSifre}
-                        textSifre={textSifre}
+                        refPassword={this.refPassword}
+                        setTextPassword={setTextPassword}
+                        textPassword={textPassword}
+                        refRePassword={this.refRePassword}
+                        setTextRePassword={setTextRePassword}
+                        textRePassword={textRePassword}
                     />
 
                 </View>
 
             </SafeAreaView>
             {
-                textSifre && textSifre.length >= 8  ?
+                textPassword && textPassword.length >= 8  ?
                     <View style={styles.nextImageContent}>
-                        <TouchableOpacity onPress={() => props.navigation.navigate("Step6")}
+                        <TouchableOpacity onPress={() => props.navigation.navigate("Step6", {
+                            ...params,
+                            password: textPassword,
+                            rePassword: textRePassword
+                        })}
                                           style={styles.nextImageBackGround}>
                             <Image source={icons.nextRight}
                                    style={styles.nextImage}

@@ -3,9 +3,9 @@ import styles from "./styles";
 import icons from "../../../../constants/icons";
 import React, {useState} from 'react';
 import {COLORS} from "../../../../constants";
-import CheckBox from "@react-native-community/checkbox";
 
-const Main = ({props, refMail, setTextMail, textMail, refSifre, textSifre, setTextSifre}) => {
+
+const Main = ({props, refMail, setTextMail, textMail, refPassword, textPassword, setTextPassword}) => {
     const [visible, setVisible] = useState(true);
 
 
@@ -43,14 +43,14 @@ const Main = ({props, refMail, setTextMail, textMail, refSifre, textSifre, setTe
                 </View>
             </TouchableOpacity>
 
-            <TouchableOpacity activeOpacity={1} onPress={() => refSifre.focus()}>
+            <TouchableOpacity activeOpacity={1} onPress={() => refPassword.focus()}>
                 <View style={styles.mainContent2}>
 
                     <View>
                         <TextInput
-                            ref={input => refSifre = input}
-                            value={textSifre}
-                            onChangeText={text => setTextSifre(text)}
+                            ref={input => refPassword = input}
+                            value={textPassword}
+                            onChangeText={text => setTextPassword(text)}
                             style={styles.textInput}
                             placeholder={"Şifre"}
                             secureTextEntry={visible}
@@ -58,7 +58,7 @@ const Main = ({props, refMail, setTextMail, textMail, refSifre, textSifre, setTe
                     </View>
 
                     {
-                        textSifre && textSifre.length > 0 ?
+                        textPassword && textPassword.length > 0 ?
                             <View>
                                 <TouchableOpacity onPress={() => {
                                     setVisible(!visible)

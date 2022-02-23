@@ -6,24 +6,31 @@ import Section from "./section";
 
 
 const Step4 = (props) => {
+    let params = props.route.params
 
-   function onPressErkek() {
+    function onPressMale() {
 
-       props.navigation.navigate("Step5")
+        props.navigation.navigate("Step5", {
+            ...params,
+            gender: "E"
+        })
     }
 
+    function onPressFemale() {
 
-    function onPressKadin() {
-
-        props.navigation.navigate("Step5")
+        props.navigation.navigate("Step5", {
+            ...params,
+            gender: "K"
+        })
     }
+
 
     return (
         <>
             <SafeAreaView>
                 <View style={styles.content}>
                     <View>
-                        <TouchableOpacity onPress={() => props.navigation.navigate("Step3")}>
+                        <TouchableOpacity onPress={() => props.navigation.navigate("Step3", {params: params})}>
                             <Image source={icons.back} style={styles.imageBack}/>
                         </TouchableOpacity>
                     </View>
@@ -34,13 +41,13 @@ const Step4 = (props) => {
                         </Text>
                     </View>
 
-                    <Section text={"Erkek"} onPress={onPressErkek}/>
+                    <Section text={"Erkek"} onPress={onPressMale}/>
 
                     <View>
                         <View style={styles.divider}/>
                     </View>
 
-                    <Section text={"Kadın"} onPress={onPressKadin}/>
+                    <Section text={"Kadın"} onPress={onPressFemale}/>
 
                 </View>
             </SafeAreaView>

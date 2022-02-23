@@ -7,13 +7,11 @@ import Section from "./section";
 
 const SignUp = (props) => {
 
-
-
     return (
         <SafeAreaView>
             <View style={styles.content}>
                 <View>
-                    <TouchableOpacity onPress={()=> props.navigation.navigate("Welcome")}>
+                    <TouchableOpacity onPress={() => props.navigation.navigate("Welcome")}>
                         <Image source={icons.close} style={styles.imageClose}/>
                     </TouchableOpacity>
                 </View>
@@ -24,7 +22,8 @@ const SignUp = (props) => {
                     </Text>
                 </View>
 
-                <Section text="E-posta ile devam et" icon={icons.mail}  onPress={()=> props.navigation.navigate("Step1")}/>
+                <Section text="E-posta ile devam et" icon={icons.mail}
+                         onPress={() => props.navigation.navigate("Step1")}/>
                 <View>
                     <View style={styles.divider}/>
                 </View>
@@ -38,9 +37,9 @@ const SignUp = (props) => {
                 <View style={styles.headerContent}>
                     <TouchableOpacity
                         onPress={() => props.navigation.navigate("SignIn")}>
-                    <Text style={styles.signInText}>
-                        Giriş Yap
-                    </Text>
+                        <Text style={styles.signInText}>
+                            Giriş Yap
+                        </Text>
                     </TouchableOpacity>
                 </View>
 

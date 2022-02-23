@@ -6,8 +6,21 @@ import Main from "./main";
 
 
 const Step1 = (props) => {
+    let params = props.route.params ? props.route.params : {
+        firstName: null,
+        lastName: null,
+        mail: null,
+        phoneNumber: null,
+        birthDate: null,
+        gender: null,
+        password: null,
+        rePassword: null,
+        marketingPermission: null
+    }
+
     this.mailRef = React.createRef();
-    const [textMail, setTextMail] = useState('');
+    const [textMail, setTextMail] = useState(params.mail);
+    const [checkMarketingPermission, setCheckMarketingPermission] = useState(true);
 
     return (
         <>
@@ -25,21 +38,28 @@ const Step1 = (props) => {
                         </Text>
                     </View>
 
-                    <Main refMail = {this.mailRef} setTextMail = {setTextMail}  textMail = {textMail} />
+                    <Main refMail={this.mailRef} setTextMail={setTextMail} textMail={textMail}
+                          checkMarketingPermission={checkMarketingPermission}
+                          setCheckMarketingPermission={setCheckMarketingPermission}/>
 
                 </View>
 
             </SafeAreaView>
             {
                 textMail && textMail.length > 0 ?
-                <View style={styles.nextImageContent}>
-                    <TouchableOpacity onPress={()=> props.navigation.navigate("Step2")}
-                                      style={styles.nextImageBackGround}>
-                        <Image source={icons.nextRight}
-                               style={styles.nextImage}
-                        />
-                    </TouchableOpacity>
-                </View> : null
+                    <View style={styles.nextImageContent}>
+                        <TouchableOpacity
+                            onPress={() => props.navigation.navigate("Step2", {
+                                ...params,
+                                mail: textMail.trim(),
+                                marketingPermission: checkMarketingPermission
+                            })}
+                            style={styles.nextImageBackGround}>
+                            <Image source={icons.nextRight}
+                                   style={styles.nextImage}
+                            />
+                        </TouchableOpacity>
+                    </View> : null
             }
 
         </>

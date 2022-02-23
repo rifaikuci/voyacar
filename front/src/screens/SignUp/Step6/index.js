@@ -7,15 +7,17 @@ import Section from "./section";
 
 
 const Step6 = (props) => {
-    this.refTelefon = React.createRef();
-    const [textTelefon, setTextTelefon] = useState('');
+    let params = props.route.params
+
+    this.refPhoneNumber = React.createRef();
+    const [textPhoneNumber, setTextPhoneNumber] = useState(params.phoneNumber);
 
     return (
         <>
             <SafeAreaView>
                 <View style={styles.content}>
                     <View>
-                        <TouchableOpacity onPress={() => props.navigation.navigate("Home")}>
+                        <TouchableOpacity onPress={() => props.navigation.navigate("Home", {params: params})}>
                             <Image source={icons.close} style={styles.imageBack}/>
                         </TouchableOpacity>
                     </View>
@@ -27,24 +29,27 @@ const Step6 = (props) => {
                     </View>
 
                     <Main
-                        refTelefon={this.refTelefon}
-                        setTextTelefon={setTextTelefon}
-                        textTelefon={textTelefon}
+                        refPhoneNumber={this.refPhoneNumber}
+                        setTextPhoneNumber={setTextPhoneNumber}
+                        textPhoneNumber={textPhoneNumber}
                     />
                     <View>
                         <View style={styles.divider}/>
                     </View>
 
-                    <Section text={"Daha Sonra Yaparım"} onPress={()=> {props.navigation.navigate("Home")}}/>
+                    <Section text={"Daha Sonra Yaparım"} onPress={()=> {props.navigation.navigate("Home", {params: params})}}/>
 
                 </View>
 
 
             </SafeAreaView>
             {
-                textTelefon && textTelefon.length >= 10  ?
+                textPhoneNumber && textPhoneNumber.length >= 10  ?
                     <View style={styles.nextImageContent}>
-                        <TouchableOpacity onPress={() => props.navigation.navigate("Step7")}
+                        <TouchableOpacity onPress={() => props.navigation.navigate("Step7", {
+                            ...params,
+                            phoneNumber: textPhoneNumber,
+                        })}
                                           style={styles.nextImageBackGround}>
                             <Image source={icons.nextRight}
                                    style={styles.nextImage}

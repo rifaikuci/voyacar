@@ -4,7 +4,7 @@ import styles from "./styles";
 import Main from "./main";
 import images from "../../../constants/images";
 import axios from 'axios';
-
+import {getDeviceInfo} from  '../../utils/deviceInfo'
 
 
 const Welcome = ( props) => {
@@ -17,6 +17,7 @@ const Welcome = ( props) => {
             console.log(error);
         });
  */
+    console.log(getDeviceInfo.deviceInfo)
 
     return (
         <View style={styles.main}>

@@ -6,13 +6,14 @@ import Section from "./section";
 
 
 const Step7 = (props) => {
+    let params = props.route.params
 
     return (
         <>
             <SafeAreaView>
                 <View style={styles.content}>
                     <View>
-                        <TouchableOpacity onPress={() => props.navigation.navigate("Step6")}>
+                        <TouchableOpacity onPress={() => props.navigation.navigate("Step6", {params: params})}>
                             <Image source={icons.back} style={styles.imageBack}/>
                         </TouchableOpacity>
                     </View>

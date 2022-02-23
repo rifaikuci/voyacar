@@ -5,31 +5,30 @@ import React from 'react';
 import {COLORS} from "../../../../constants";
 
 
-const Main = ({ refAd, refSoyad, textAd, setTextAd, textSoyad, setTextSoyad}) => {
-
+const Main = ({ refFirstName, refLastName, textFirstName, setTextFirstName, textLastName, setTextLastName}) => {
 
     return (
         <>
-            <TouchableOpacity activeOpacity={1} onPress={() => refAd.focus()}>
+            <TouchableOpacity activeOpacity={1} onPress={() => refFirstName.focus()}>
                 <View style={styles.mainContent}>
 
                     <View>
                         <TextInput
-                            ref={input => refAd = input}
-                            value={textAd}
-                            onChangeText={text => setTextAd(text)}
+                            ref={input => refFirstName = input}
+                            value={textFirstName}
+                            onChangeText={text => setTextFirstName(text)}
                             style={styles.textInput}
-                            placeholder={"Ad"}
+                            placeholder={"FirstName"}
                             placeholderTextColor={COLORS.primary}/>
                     </View>
 
                     {
-                        textAd  && textAd.length  > 0  ?
+                        textFirstName  && textFirstName.length  > 0  ?
                             <View>
                                 <TouchableOpacity onPress={() => {
-                                    refAd.clear()
-                                    refAd.focus()
-                                    setTextAd("")
+                                    refFirstName.clear()
+                                    refFirstName.focus()
+                                    setTextFirstName("")
                                 }}>
 
                                     <Image source={icons.close} style={styles.imageClose}/>
@@ -41,26 +40,26 @@ const Main = ({ refAd, refSoyad, textAd, setTextAd, textSoyad, setTextSoyad}) =>
                 </View>
             </TouchableOpacity>
 
-            <TouchableOpacity activeOpacity={1} onPress={() => refSoyad.focus()}>
+            <TouchableOpacity activeOpacity={1} onPress={() => refLastName.focus()}>
                 <View style={styles.mainContent2}>
 
                     <View>
                         <TextInput
-                            ref={input => refSoyad = input}
-                            value={textSoyad}
-                            onChangeText={text => setTextSoyad(text)}
+                            ref={input => refLastName = input}
+                            value={textLastName}
+                            onChangeText={text => setTextLastName(text)}
                             style={styles.textInput}
-                            placeholder={"Soyad"}
+                            placeholder={"LastName"}
                             placeholderTextColor={COLORS.primary}/>
                     </View>
 
                     {
-                        textSoyad  && textSoyad.length  > 0  ?
+                        textLastName  && textLastName.length  > 0  ?
                             <View>
                                 <TouchableOpacity onPress={() => {
-                                    refSoyad.clear()
-                                    refSoyad.focus()
-                                    setTextSoyad("")
+                                    refLastName.clear()
+                                    refLastName.focus()
+                                    setTextLastName("")
                                 }}>
 
                                     <Image source={icons.close} style={styles.imageClose}/>
@@ -70,10 +69,7 @@ const Main = ({ refAd, refSoyad, textAd, setTextAd, textSoyad, setTextSoyad}) =>
                     }
                 </View>
             </TouchableOpacity>
-
         </>
-
-
     )
 }
 export default Main;

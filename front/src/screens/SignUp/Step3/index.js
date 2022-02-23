@@ -6,15 +6,16 @@ import Main from "./main";
 
 
 const Step3 = (props) => {
-    this.refDogumTarih = React.createRef();
-    const [textDogumTarih, setTextDogumTarih] = useState('');
+    let params = props.route.params
+    this.refBirthDate = React.createRef();
+    const [textBirthDate, setTextBirthDate] = useState(params.birthDate);
 
     return (
         <>
             <SafeAreaView>
                 <View style={styles.content}>
                     <View>
-                        <TouchableOpacity onPress={() => props.navigation.navigate("Step2")}>
+                        <TouchableOpacity onPress={() => props.navigation.navigate("Step2", {params: params})}>
                             <Image source={icons.back} style={styles.imageBack}/>
                         </TouchableOpacity>
                     </View>
@@ -26,24 +27,25 @@ const Step3 = (props) => {
                     </View>
 
                     <Main
-                        refDogumTarih = {this.refDogumTarih}
-                        setTextDogumTarih = {setTextDogumTarih}
-                        textDogumTarih = {textDogumTarih}
+                        refBirthDate={this.refBirthDate}
+                        setTextBirthDate={setTextBirthDate}
+                        textBirthDate={textBirthDate}
                     />
 
                 </View>
 
             </SafeAreaView>
             {
-                textDogumTarih && textDogumTarih.length === 10 ?
-                <View style={styles.nextImageContent}>
-                    <TouchableOpacity onPress={()=> props.navigation.navigate("Step4")}
-                                      style={styles.nextImageBackGround}>
-                        <Image source={icons.nextRight}
-                               style={styles.nextImage}
-                        />
-                    </TouchableOpacity>
-                </View> : null
+                textBirthDate && textBirthDate.length === 10 ?
+                    <View style={styles.nextImageContent}>
+                        <TouchableOpacity
+                            onPress={() => props.navigation.navigate("Step4", {...params, birthDate: textBirthDate})}
+                            style={styles.nextImageBackGround}>
+                            <Image source={icons.nextRight}
+                                   style={styles.nextImage}
+                            />
+                        </TouchableOpacity>
+                    </View> : null
             }
 
         </>

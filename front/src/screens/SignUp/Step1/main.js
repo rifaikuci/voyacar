@@ -5,8 +5,8 @@ import React from 'react';
 import {COLORS} from "../../../../constants";
 import CheckBox from "@react-native-community/checkbox";
 
-const Main = ({refMail, setTextMail, textMail}) => {
 
+const Main = ({refMail, setTextMail, textMail, setCheckMarketingPermission, checkMarketingPermission}) => {
 
     return (
         <>
@@ -53,7 +53,8 @@ const Main = ({refMail, setTextMail, textMail}) => {
                 <View style={styles.checkBoxContent}>
                     <CheckBox
                         style={styles.checkBox}
-                        value={false}
+                        value={checkMarketingPermission}
+                        onValueChange={() => setCheckMarketingPermission(!checkMarketingPermission)}
                         onCheckColor={COLORS.primary}
                         onTintColor={COLORS.primary}
                     />

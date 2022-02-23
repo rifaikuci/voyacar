@@ -5,8 +5,7 @@ import React, {useEffect, useState} from 'react';
 import {COLORS} from "../../../../constants";
 
 
-const Main = ({refKod, setTextKod, textKod}) => {
-
+const Main = ({refSmsOtp, setTextSmsOtp, textSmsOtp}) => {
 
     function countDown(value) {
         deger = value;
@@ -31,26 +30,26 @@ const Main = ({refKod, setTextKod, textKod}) => {
     }, []);
 
     return (<>
-            <TouchableOpacity activeOpacity={1} onPress={() => refKod.focus()}>
+            <TouchableOpacity activeOpacity={1} onPress={() => refSmsOtp.focus()}>
                 <View style={styles.mainContent}>
 
                     <View>
                         <TextInput
-                            ref={input => refKod = input}
-                            value={textKod}
-                            onChangeText={text => setTextKod(text)}
+                            ref={input => refSmsOtp = input}
+                            value={textSmsOtp}
+                            onChangeText={text => setTextSmsOtp(text)}
                             keyboardType={"numeric"}
                             style={styles.textInput}
-                            placeholder={"4 Haneli Kod"}
+                            placeholder={"4 Haneli SmsOtp"}
                             maxLength={4}
                             placeholderTextColor={COLORS.primary}/>
                     </View>
 
-                    {textKod && textKod.length > 0 ? <View>
+                    {textSmsOtp && textSmsOtp.length > 0 ? <View>
                         <TouchableOpacity onPress={() => {
-                            refKod.clear()
-                            refKod.focus()
-                            setTextKod("")
+                            refSmsOtp.clear()
+                            refSmsOtp.focus()
+                            setTextSmsOtp("")
                         }}>
 
                             <Image source={icons.close} style={styles.imageClose}/>
@@ -83,8 +82,6 @@ const Main = ({refKod, setTextKod, textKod}) => {
                         Kalan Süre ({count} sn.)
                     </Text>
                 </View>
-
-
             </View>
         </>
 

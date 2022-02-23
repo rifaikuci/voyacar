@@ -1,4 +1,3 @@
-import { Platform } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 import publicIP from 'react-native-public-ip';
 
@@ -16,7 +15,6 @@ export const getDeviceInfo = async () => {
     DeviceInfo.getBundleId(), DeviceInfo.getManufacturer(), DeviceInfo.getDeviceId(), DeviceInfo.getModel(), getUniqueId(),
     DeviceInfo.getSystemName(), DeviceInfo.getSystemVersion(), DeviceInfo.getDeviceName(),
     DeviceInfo.getUserAgent(), DeviceInfo.getVersion(), publicIP(), DeviceInfo.getMacAddress()]);
-
   deviceInfo = {
     deviceToken: deviceToken,
     deviceType: deviceType,
@@ -56,6 +54,6 @@ export const getDInfo = () => {
   return deviceInfo;
 }
 
-export const getAppVersion = () => { 
+export const getAppVersion = () => {
   return DeviceInfo.getVersion();
 }

@@ -5,33 +5,33 @@ import React, {useState} from 'react';
 import {COLORS} from "../../../../constants";
 
 
-const Main = ({refTelefon, setTextTelefon, textTelefon}) => {
+const Main = ({refPhoneNumber, setTextPhoneNumber, textPhoneNumber}) => {
 
     return (
         <>
-            <TouchableOpacity activeOpacity={1} onPress={() => refTelefon.focus()}>
+            <TouchableOpacity activeOpacity={1} onPress={() => refPhoneNumber.focus()}>
                 <View style={styles.mainContent}>
 
                     <View>
                         <TextInput
-                            ref={input => refTelefon = input}
-                            value={"+90" + textTelefon}
+                            ref={input => refPhoneNumber = input}
+                            value={"+90" + textPhoneNumber}
                             onChangeText={text => {
-                                setTextTelefon(text.substr(3))
+                                setTextPhoneNumber(text.substr(3))
                             }}
                             keyboardType={"phone-pad"}
                             style={styles.textInput}
-                            placeholder={"Telefon"}
+                            placeholder={"PhoneNumber"}
                             placeholderTextColor={COLORS.primary}/>
                     </View>
 
                     {
-                        textTelefon && textTelefon.length > 0 ?
+                        textPhoneNumber && textPhoneNumber.length > 0 ?
                             <View>
                                 <TouchableOpacity onPress={() => {
-                                    refTelefon.clear()
-                                    refTelefon.focus()
-                                    setTextTelefon("")
+                                    refPhoneNumber.clear()
+                                    refPhoneNumber.focus()
+                                    setTextPhoneNumber("")
                                 }}>
 
                                     <Image source={icons.close} style={styles.image}/>

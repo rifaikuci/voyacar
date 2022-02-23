@@ -5,6 +5,7 @@ import icons from "../../../constants/icons";
 
 
 const Section = ({text, icon, onPress}) => {
+
     return (
         <TouchableOpacity onPress={onPress}>
 
@@ -25,8 +26,6 @@ const Section = ({text, icon, onPress}) => {
                 </View>
             </View>
         </TouchableOpacity>
-
-
     )
 }
 export default Section;

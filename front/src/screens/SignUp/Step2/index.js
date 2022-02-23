@@ -6,49 +6,54 @@ import Main from "./main";
 
 
 const Step2 = (props) => {
-    this.refAd = React.createRef();
-    this.refSoyad = React.createRef();
-    const [textAd, setTextAd] = useState('');
-    const [textSoyad, setTextSoyad] = useState('');
+    let params = props.route.params
+    this.refFirstName = React.createRef();
+    this.refLastName = React.createRef();
+    const [textFirstName, setTextFirstName] = useState(params.firstName);
+    const [textLastName, setTextLastName] = useState(params.lastName);
 
     return (
         <>
             <SafeAreaView>
                 <View style={styles.content}>
                     <View>
-                        <TouchableOpacity onPress={() => props.navigation.navigate("Step1")}>
+                        <TouchableOpacity onPress={() => props.navigation.navigate("Step1" , {params : params})}>
                             <Image source={icons.back} style={styles.imageBack}/>
                         </TouchableOpacity>
                     </View>
 
                     <View style={styles.headerContent}>
                         <Text style={styles.headerText}>
-                            {"Adın ne?"}
+                            {"Adınız ne?"}
                         </Text>
                     </View>
 
                     <Main
-                        refAd = {this.refAd}
-                        refSoyad = {this.refSoyad}
-                        setTextAd = {setTextAd}
-                        textAd = {textAd}
-                        setTextSoyad = {setTextSoyad}
-                        textSoyad = {textSoyad}
+                        refFirstName={this.refFirstName}
+                        refLastName={this.refLastName}
+                        setTextFirstName={setTextFirstName}
+                        textFirstName={textFirstName}
+                        setTextLastName={setTextLastName}
+                        textLastName={textLastName}
                     />
 
                 </View>
 
             </SafeAreaView>
             {
-                textAd && textSoyad && textAd.length > 0  && textSoyad.length > 0?
-                <View style={styles.nextImageContent}>
-                    <TouchableOpacity onPress={()=> props.navigation.navigate("Step3")}
-                                      style={styles.nextImageBackGround}>
-                        <Image source={icons.nextRight}
-                               style={styles.nextImage}
-                        />
-                    </TouchableOpacity>
-                </View> : null
+                textFirstName && textLastName && textFirstName.length > 0 && textLastName.length > 0 ?
+                    <View style={styles.nextImageContent}>
+                        <TouchableOpacity onPress={() => props.navigation.navigate("Step3", {
+                            ...params,
+                            firstName: textFirstName,
+                            lastName: textLastName
+                        })}
+                                          style={styles.nextImageBackGround}>
+                            <Image source={icons.nextRight}
+                                   style={styles.nextImage}
+                            />
+                        </TouchableOpacity>
+                    </View> : null
             }
 
         </>

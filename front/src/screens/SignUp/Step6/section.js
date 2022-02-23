@@ -21,8 +21,6 @@ const Section = ({text, onPress}) => {
                 </View>
             </View>
         </TouchableOpacity>
-
-
     )
 }
 export default Section;

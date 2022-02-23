@@ -6,36 +6,38 @@ import Main from "./main";
 
 
 const Step8 = (props) => {
-    this.refKod = React.createRef();
-    const [textKod, setTextKod] = useState('');
+    let params = props.route.params
+
+    this.refSmsOtp = React.createRef();
+    const [textSmsOtp, setTextSmsOtp] = useState('');
 
     return (
         <>
             <SafeAreaView>
                 <View style={styles.content}>
                     <View>
-                        <TouchableOpacity onPress={() => props.navigation.navigate("Step7")}>
+                        <TouchableOpacity onPress={() => props.navigation.navigate("Step7", {params: params})}>
                             <Image source={icons.back} style={styles.imageBack}/>
                         </TouchableOpacity>
                     </View>
 
                     <View style={styles.headerContent}>
                         <Text style={styles.headerText}>
-                            {"SMS ile Gelen Kod?"}
+                            {"SMS ile Gelen SmsOtp?"}
                         </Text>
                     </View>
 
                     <Main
-                        refKod={this.refKod}
-                        setTextKod={setTextKod}
-                        textKod={textKod}
+                        refSmsOtp={this.refSmsOtp}
+                        setTextSmsOtp={setTextSmsOtp}
+                        textSmsOtp={textSmsOtp}
                     />
 
                 </View>
 
             </SafeAreaView>
             {
-                textKod && textKod.length === 4 ?
+                textSmsOtp && textSmsOtp.length === 4 ?
                     <View style={styles.nextImageContent}>
                         <TouchableOpacity onPress={() => props.navigation.navigate("Home")}
                                           style={styles.nextImageBackGround}>

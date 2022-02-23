@@ -7,9 +7,9 @@ import Main from "./main";
 
 const Login = (props) => {
     this.refMail = React.createRef();
-    this.refSifre = React.createRef();
+    this.refPassword = React.createRef();
     const [textMail, setTextMail] = useState('');
-    const [textSifre, setTextSifre] = useState('');
+    const [textPassword, setTextPassword] = useState('');
 
     return (
         <>
@@ -29,11 +29,11 @@ const Login = (props) => {
 
                     <Main
                         refMail={this.refMail}
-                        refSifre={this.refSifre}
+                        refPassword={this.refPassword}
                         textMail={textMail}
                         setTextMail={setTextMail}
-                        textSifre={textSifre}
-                        setTextSifre={setTextSifre}
+                        textPassword={textPassword}
+                        setTextPassword={setTextPassword}
                         props = {props}
                     />
 
@@ -41,11 +41,11 @@ const Login = (props) => {
 
             </SafeAreaView>
             {
-                textMail && textMail.length > 0  && textSifre && textSifre.length > 0 ?
+                textMail && textMail.length > 0  && textPassword && textPassword.length > 0 ?
                 <View style={styles.nextImageContent}>
                     <TouchableOpacity onPress={()=> props.navigation.navigate("Home", {
                         mail : textMail,
-                        password: textSifre
+                        password: textPassword
                     })}
                                       style={styles.nextImageBackGround}>
                         <Image source={icons.nextRight}

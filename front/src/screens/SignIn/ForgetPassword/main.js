@@ -4,8 +4,8 @@ import icons from "../../../../constants/icons";
 import React from 'react';
 import {COLORS} from "../../../../constants";
 
-const Main = ({ refMail, setTextMail, textMail}) => {
 
+const Main = ({ refMail, setTextMail, textMail}) => {
 
     return (
         <>

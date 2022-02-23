@@ -5,6 +5,7 @@ import icons from "../../../../constants/icons";
 
 
 const Section = ({text, onPress}) => {
+
     return (
         <TouchableOpacity onPress={onPress}>
             <View style={styles.headerContent}>

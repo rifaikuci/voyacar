@@ -5,22 +5,21 @@ import React from 'react';
 import {COLORS} from "../../../../constants";
 
 
-const Main = ({ refDogumTarih, setTextDogumTarih, textDogumTarih}) => {
-
+const Main = ({ refBirthDate, setTextBirthDate, textBirthDate}) => {
 
     return (
         <>
-            <TouchableOpacity activeOpacity={1} onPress={() => refDogumTarih.focus()}>
+            <TouchableOpacity activeOpacity={1} onPress={() => refBirthDate.focus()}>
                 <View style={styles.mainContent}>
 
                     <View>
                         <TextInput
-                            ref={input => refDogumTarih = input}
-                            value={textDogumTarih}
+                            ref={input => refBirthDate = input}
+                            value={textBirthDate}
                             onChangeText={text => {
 
-                                text.length === 2 ? setTextDogumTarih(text+"/") :
-                                text.length === 5 ? setTextDogumTarih(text+"/") : setTextDogumTarih(text)
+                                text.length === 2 ? setTextBirthDate(text+"/") :
+                                text.length === 5 ? setTextBirthDate(text+"/") : setTextBirthDate(text)
                                 } }
                             style={styles.textInput}
                             placeholder={"GG/AA/YYYY"}
@@ -29,12 +28,12 @@ const Main = ({ refDogumTarih, setTextDogumTarih, textDogumTarih}) => {
                     </View>
 
                     {
-                        textDogumTarih  && textDogumTarih.length  > 0  ?
+                        textBirthDate  && textBirthDate.length  > 0  ?
                             <View>
                                 <TouchableOpacity onPress={() => {
-                                    refDogumTarih.clear()
-                                    refDogumTarih.focus()
-                                    setTextDogumTarih("")
+                                    refBirthDate.clear()
+                                    refBirthDate.focus()
+                                    setTextBirthDate("")
                                 }}>
 
                                     <Image source={icons.close} style={styles.imageClose}/>
